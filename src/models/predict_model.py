@@ -121,5 +121,4 @@ plt.ylabel('MAE')
 plt.tight_layout()
 
 # Show plot
-plt.show()
 plt.savefig('reports/figures/Model Comparison.png', dpi=300)

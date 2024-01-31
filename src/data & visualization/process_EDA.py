@@ -55,9 +55,9 @@ axs[0].legend(handles=legend_elements, loc='best')
 axs[0].set_title('Original and Lagged One Week')
 axs[1].set_title('7-Day Difference')
 
-
 plt.show()
-plt.savefig('reports/figures/Weekly Seasonality.png', dpi=300)
+fig.savefig('reports/figures/Weekly Seasonality.png', dpi=300)
+
 
 diff_mothly = df[['Open', 'High', 'Low', 'Close', 'Adj Close']].diff(30)[
     "2023-01-01":"2024-01-26"]
@@ -76,7 +76,7 @@ axs[0].set_title('Original and Lagged One Month')
 axs[1].set_title('30-Days Difference')
 
 plt.show()
-plt.savefig('reports/figures/Monthly Seasonality.png', dpi=300)
+fig.savefig('reports/figures/Monthly Seasonality.png', dpi=300)
 
 diff_yearly = df[['Open', 'High', 'Low', 'Close', 'Adj Close']].diff(252)[
     "2020-10-01":"2024-01-26"]
@@ -96,7 +96,7 @@ axs[1].set_title('1-Year Difference')
 
 plt.show()
 
-plt.savefig('reports/figures/Yearly Seasonality.png', dpi=300)
+fig.savefig('reports/figures/Yearly Seasonality.png', dpi=300)
 
 df = df.dropna()
 
@@ -119,9 +119,9 @@ for i, column in enumerate(df.drop(['Volume'], axis=1).columns):
 plt.tight_layout()
 plt.savefig('reports/figures/Distribution.png', dpi=300)
 
-sns.distplot(df['Volume'], kde=True)
-plt.tight_layout()
-plt.savefig('reports/figures/Distribution Volume.png', dpi=300)
+
+f=sns.distplot(df['Volume'], kde=True)
+f.figure.savefig('reports/figures/Distribution Volume.png', dpi=300)
 
 close_df = df[['Close']]
 
